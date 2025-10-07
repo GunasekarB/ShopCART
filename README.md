@@ -56,11 +56,9 @@ This repository is intended for:
 
 > Replace with the actual stack used in your project. The list below is a common example.
 
-* Frontend: React (Create React App / Vite) or Next.js
+* Frontend: React (Create React App / Vite)
 
 * State: Redux / Context API
-
-* Backend: Node.js + Express 
 
 * Styling: Tailwind CSS or plain CSS / SASS
 
@@ -74,14 +72,14 @@ This repository is intended for:
 
 ```
 shopcart/
-├─ client/                 # Front-end (React/Next)
-├─ server/                 # Back-end (Express, API routes)
-├─ scripts/                # Helper scripts (migrations, seed)
+├─ client/                 
+├─ scripts/               
 ├─ docker-compose.yml
 ├─ Dockerfile.server
 ├─ Dockerfile.client
 ├─ .env.example
 └─ README.md
+
 ```
 
 (Adjust to match your repository layout.)
@@ -106,23 +104,22 @@ cd ShopCART
 # if the repo has separate client & server
 cd server && npm install
 cd ../client && npm install
+
 ```
 
 ### Run (Development)
 
-In two terminals (client and server):
 
 ```bash
-# Server
-cd server
-npm run dev      # e.g., nodemon
+cd ShopCART
+npm run dev     
 
-# Client
-cd client
-npm start        # or npm run dev for Vite
+# json server
+cd ShopCART/data
+json-server --watch data.json --port 5000
+
 ```
 
-Open `http://localhost:3000` (client) and `http://localhost:4000/api` (server) by default.
 
 ---
 
@@ -164,13 +161,10 @@ Return formats should be JSON with consistent response envelope.
 If tests exist, run them with:
 
 ```bash
-# server tests
-cd server
+#  tests
+cd ShopCART
 npm test
 
-# client tests
-cd client
-npm test
 ```
 
 Add unit and integration tests for critical logic (cart math, auth flows, order creation).
